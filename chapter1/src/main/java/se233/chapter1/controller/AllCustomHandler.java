@@ -14,8 +14,11 @@ import se233.chapter1.model.character.BasedCharacter;
 import se233.chapter1.model.item.Weapon;
 import se233.chapter1.model.item.Armor;
 import java.util.ArrayList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger; //exercise6.1
 
 public class AllCustomHandler {
+    private static final Logger logger = LogManager.getLogger(AllCustomHandler.class); //exercise6.1
     public static class GenCharacterHandler implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent event) {
@@ -99,6 +102,7 @@ public class AllCustomHandler {
                     }
                     Launcher.setEquippedArmor(armor);
                     character.equipArmor(armor);
+                    logger.info("Equipped Armor: " + armor.getName()); //exercise6.1
                 }
             }
 
